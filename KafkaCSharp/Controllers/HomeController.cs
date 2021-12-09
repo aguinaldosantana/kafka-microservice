@@ -1,4 +1,5 @@
-﻿using KafkaCSharp.Models;
+﻿using KafkaCSharp.Kafka;
+using KafkaCSharp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -12,10 +13,12 @@ namespace KafkaCSharp.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<KafkaProducerHostedService> _loggerKafka;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ILogger<KafkaProducerHostedService> loggerKafka)
         {
             _logger = logger;
+            _loggerKafka = loggerKafka;
         }
 
         public IActionResult Index()

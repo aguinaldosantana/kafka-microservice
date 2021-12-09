@@ -32,6 +32,7 @@ namespace KafkaCSharp
                 .ConfigureServices((context, collection) =>
                 {
                     collection.AddHostedService<KafkaProducerHostedService>();
+                    collection.AddHostedService<KafkaConsumerHostedService>();
                 });
     }
 }

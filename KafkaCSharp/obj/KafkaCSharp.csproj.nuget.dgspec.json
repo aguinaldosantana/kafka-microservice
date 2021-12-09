@@ -44,9 +44,21 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Castle.Core": {
+              "target": "Package",
+              "version": "[4.4.1, )"
+            },
             "Confluent.Kafka": {
               "target": "Package",
               "version": "[1.8.2, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "kafka-sharp": {
+              "target": "Package",
+              "version": "[1.4.3, )"
             }
           },
           "imports": [

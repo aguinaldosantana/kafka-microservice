@@ -2,8 +2,6 @@
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -25,11 +23,11 @@ namespace KafkaCSharp.Kafka
         }
         public async Task StartAsync(CancellationToken cancellationToken)
         {
-            for (var i = 0; i < 10; i++)
+            for (var i = 1; i < 30; i++)
             {
-                var value = $"Mensagem {i}";
+                var value = $"Estou enviando a mensagem de numero {i}";
                 _logger.LogInformation(value);
-                await _producer.ProduceAsync("send_email_kafka", new Message<Null, string>()
+                await _producer.ProduceAsync("send_message_kafka", new Message<Null, string>()
                 {
                     Value = value
                 }, cancellationToken);
